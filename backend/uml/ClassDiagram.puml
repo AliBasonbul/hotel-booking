@@ -1,0 +1,25 @@
+@startuml
+class User {
+  +id: Int
+  +name: String
+  +email: String
+}
+
+class Room {
+  +id: Int
+  +number: String
+  +type: String
+  +status: String
+}
+
+class Booking {
+  +id: Int
+  +userId: Int
+  +roomId: Int
+  +checkInDate: Date
+  +checkOutDate: Date
+}
+
+User --> Booking : "books"
+Booking --> Room : "for"
+@enduml

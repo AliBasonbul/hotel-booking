@@ -1,0 +1,8 @@
+@startuml
+actor "User" as User
+rectangle "Booking System" {
+    User -- (Book Room)
+    User -- (Cancel Booking)
+    User -- (View Booking Details)
+}
+@enduml

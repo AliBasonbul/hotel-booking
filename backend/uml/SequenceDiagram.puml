@@ -1,0 +1,13 @@
+@startuml
+actor User
+participant "UI" as UI
+participant "API" as API
+participant "Database" as DB
+
+User -> UI: Submit booking request
+UI -> API: Send booking data
+API -> DB: Save booking
+DB --> API: Return booking confirmation
+API --> UI: Send confirmation response
+UI --> User: Display booking confirmation
+@enduml
