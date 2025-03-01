@@ -1,0 +1,30 @@
+@startuml
+
+
+package "Express Booking System" {
+  [Routes] <<Component>>
+  [Controllers] <<Component>>
+  [Services] <<Component>>
+  [Middlewares] <<Component>>
+  [Configuration] <<Component>>
+  
+ 
+  [Routes] --> [Controllers] : "Forwards requests"
+  [Controllers] --> [Services] : "Calls business logic"
+  [Middlewares] --> [Routes] : "Protects routes"
+  [Configuration] --> [Services] : "Provides DB & JWT config"
+  [Configuration] --> [Middlewares] : "Provides environment variables"
+}
+
+package "Database Layer" {
+  [Prisma Client] <<Component>>
+  [PostgreSQL] <<Component>>
+  
+  [Prisma Client] --> [PostgreSQL] : "Executes queries"
+}
+
+
+[Services] --> [Prisma Client] : "Uses for DB access"
+[Configuration] --> [Prisma Client] : "DB connection info"
+
+@enduml
