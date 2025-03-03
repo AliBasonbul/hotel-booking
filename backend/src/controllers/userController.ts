@@ -14,13 +14,13 @@ class UserController {
   async login(req: Request, res: Response) {
     try {
       const token = await userService.authenticateUser(req.body);
-      res.status(200).json({ token });
+      res.status(200).json(token);
     } catch (error: any) {
       res.status(401).json({ message: error.message });
     }
   }
 
-  
+
 }
 
 export default new UserController();
