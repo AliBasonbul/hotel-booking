@@ -24,8 +24,9 @@ class UserService {
       config.jwtSecret,
       signOptions
     );
+    const userId = user.id
 
-    return { token };
+    return { token , userId };
   }
 
   async createUser({ name, email, password }: { name: string; email: string; password: string }) {
