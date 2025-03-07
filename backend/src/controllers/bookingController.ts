@@ -30,7 +30,7 @@ class BookingController {
         return;
       }
 
-      const bookings = await bookingService.getUserBookings(req.user.id);
+      const bookings = await bookingService.getUserBookings();
       res.json(bookings);
     } catch (error: any) {
       res.status(400).json({ error: error.message });
